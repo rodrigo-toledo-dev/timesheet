@@ -1,0 +1,27 @@
+<%= form_with(model: user_holiday, local: true) do |form| %>
+  <% if user_holiday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_holiday.errors.count, "error") %> prohibited this user_holiday from being saved:</h2>
+
+      <ul>
+        <% user_holiday.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :holiday_id %>
+    <%= form.text_field :holiday_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
